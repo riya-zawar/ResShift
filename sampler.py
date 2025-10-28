@@ -23,6 +23,9 @@ import torch.multiprocessing as mp
 from datapipe.datasets import create_dataset
 from utils.util_image import ImageSpliterTh
 
+if dist.is_initialized():
+    dist.barrier()
+
 class BaseSampler:
     def __init__(
             self,
